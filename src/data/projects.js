@@ -1,7 +1,7 @@
 /* FILE: src/data/projects.js */
 
-// Helper to generate Unsplash URLs
-const getUnsplashUrl = (id, width = 1200) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`;
+// Helper to generate Unsplash URLs (redirected to Picsum for stability)
+const getUnsplashUrl = (id, width = 1200) => `https://picsum.photos/seed/${id}/800/600`;
 
 // A bank of high-quality luxury interior Unsplash image IDs
 const imageIds = {
@@ -307,7 +307,7 @@ export const projects = rawProjects.map((p) => {
   const imageIdsPool = imageIds[categoryKey] || imageIds.villa;
   const baImages = beforeAfterImages[categoryKey] || beforeAfterImages.villa;
 
-  const images = imageIdsPool.map((id) => getUnsplashUrl(id, 800));
+  const images = imageIdsPool.map((id, index) => `https://picsum.photos/seed/project-${p.id}-image-${index}/800/600`);
   
   return {
     id: p.id,
@@ -319,10 +319,10 @@ export const projects = rawProjects.map((p) => {
     completionTime: p.time,
     designStyle: p.style,
     projectType: p.type,
-    heroImage: getUnsplashUrl(imageIdsPool[0], 1200),
+    heroImage: `https://picsum.photos/seed/project-${p.id}-hero/800/600`,
     images,
-    beforeImage: getUnsplashUrl(baImages.before, 800),
-    afterImage: getUnsplashUrl(baImages.after, 800),
+    beforeImage: `https://picsum.photos/seed/project-${p.id}-before/800/600`,
+    afterImage: `https://picsum.photos/seed/project-${p.id}-after/800/600`,
     description: details.description,
     challenges: details.challenges,
     concept: details.concept,

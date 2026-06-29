@@ -1,13 +1,13 @@
 /* FILE: src/hooks/useFilteredProjects.js */
 import { useMemo } from 'react';
 
-export const useFilteredProjects = (projects, activeCategory) => {
+export const useFilteredProjects = (projects = [], category = 'All') => {
+  console.log(projects.length);
   return useMemo(() => {
-    if (!activeCategory || activeCategory === 'All') {
+    if (category === "All") {
       return projects;
+    } else {
+      return projects.filter(p => p.category === category);
     }
-    return projects.filter(
-      (project) => project.category.toLowerCase() === activeCategory.toLowerCase()
-    );
-  }, [projects, activeCategory]);
+  }, [projects, category]);
 };
