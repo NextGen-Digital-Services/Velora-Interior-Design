@@ -335,6 +335,17 @@ const projectHeroIds = {
   50: 'photo-1600585154340-be6161a56a0c'
 };
 
+const projectLocalImages = {
+  1: '/images/portfolio/luxury_villa.png',
+  2: '/images/portfolio/penthouse.png',
+  3: '/images/portfolio/corporate_office.png',
+  4: '/images/portfolio/luxury_retail.png',
+  5: '/images/portfolio/boutique_hotel.png',
+  6: '/images/portfolio/modern_kitchen.png',
+  7: '/images/portfolio/executive_suite.png',
+  8: '/images/portfolio/yacht_interior.png'
+};
+
 // Map and build the complete list of 50 projects
 export const projects = rawProjects.map((p) => {
   const categoryKey = getCategoryKey(p.category);
@@ -343,7 +354,12 @@ export const projects = rawProjects.map((p) => {
 
   const heroImageId = projectHeroIds[p.id] || imageIdsPool[0];
   const galleryIds = [heroImageId, ...imageIdsPool.filter(id => id !== heroImageId)];
-  const images = galleryIds.map((id) => getUnsplashUrl(id));
+  
+  const heroImage = projectLocalImages[p.id] || getUnsplashUrl(heroImageId);
+  const afterImage = heroImage;
+  const images = projectLocalImages[p.id]
+    ? [projectLocalImages[p.id], ...imageIdsPool.map((id) => getUnsplashUrl(id))]
+    : galleryIds.map((id) => getUnsplashUrl(id));
   
   const beforeImagesList = [
     'photo-1584622650111-993a426fbf0a',
@@ -363,10 +379,10 @@ export const projects = rawProjects.map((p) => {
     completionTime: p.time,
     designStyle: p.style,
     projectType: p.type,
-    heroImage: getUnsplashUrl(heroImageId),
+    heroImage,
     images,
     beforeImage: getUnsplashUrl(beforeImageId),
-    afterImage: getUnsplashUrl(heroImageId),
+    afterImage,
     description: details.description,
     challenges: details.challenges,
     concept: details.concept,
