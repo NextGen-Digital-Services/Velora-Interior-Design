@@ -75,7 +75,14 @@ export const Footer = () => {
             <div className="footer-info">
               <div className="footer-info-item">
                 <FaMapMarkerAlt />
-                <span>Sector 115, Sorkha, Noida, Uttar Pradesh</span>
+                <a 
+                  href="https://maps.app.goo.gl/XVvWT8gxfDz6zxEp9" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="clickable"
+                >
+                  Sector 115, Sorkha, Noida, Uttar Pradesh
+                </a>
               </div>
               <div className="footer-info-item">
                 <FaPhone />

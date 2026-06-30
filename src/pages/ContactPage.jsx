@@ -201,8 +201,26 @@ export const ContactPage = () => {
                   <FaMapMarkerAlt />
                 </div>
                 <div className="contact-detail-card-content">
-                  <h5>Address</h5>
-                  <p>Level 4, Prestige Corporate Towers, Delhi, India</p>
+                  <h5>Corporate Office</h5>
+                  <p>
+                    <a 
+                      href="https://maps.app.goo.gl/XVvWT8gxfDz6zxEp9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="clickable"
+                    >
+                      Sector 115, Sorkha, Noida, Uttar Pradesh
+                    </a>
+                  </p>
+                  <a 
+                    href="https://maps.app.goo.gl/XVvWT8gxfDz6zxEp9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="clickable"
+                    style={{ fontSize: '13px', color: 'var(--color-gold)', marginTop: '4px', display: 'inline-block', textDecoration: 'none' }}
+                  >
+                    Get Directions &rarr;
+                  </a>
                 </div>
               </div>
 
@@ -213,7 +231,7 @@ export const ContactPage = () => {
                 <div className="contact-detail-card-content">
                   <h5>Phone</h5>
                   <p>
-                    <a href="tel:+91XXXXXXXXXX" className="clickable">+91-XXXXXXXXXX</a>
+                    <a href="tel:+91 73519 01329" className="clickable">+91 73519 01329</a>
                   </p>
                 </div>
               </div>
@@ -225,7 +243,7 @@ export const ContactPage = () => {
                 <div className="contact-detail-card-content">
                   <h5>Email</h5>
                   <p>
-                    <a href="mailto:info@veloradesign.com" className="clickable">info@veloradesign.com</a>
+                    <a href="mailto:businesswithvelora@gmail.com" className="clickable">businesswithvelora@gmail.com</a>
                   </p>
                 </div>
               </div>
@@ -272,13 +290,30 @@ export const ContactPage = () => {
 
         {/* 3. Google Map Embed */}
         <div className="map-embed-container reveal">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114875217434!2d77.2065181!3d28.6289205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5d34e2a2ef%3A0x6e2df4de05252033!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%2C%20India!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-            title="Velora Delhi Corporate Office Location"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <a
+            href="https://maps.app.goo.gl/XVvWT8gxfDz6zxEp9"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'block', width: '100%', height: '100%', position: 'relative' }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: 10,
+              cursor: 'pointer'
+            }}></div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.606275217434!2d77.4056087!3d28.5675177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef3e9ff1e9bf%3A0x797858ad9b47a2d8!2sSector+115%2C+Sorkha%2C+Noida%2C+Uttar+Pradesh!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              title="Velora Delhi Corporate Office Location"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              style={{ pointerEvents: 'none' }}
+            ></iframe>
+          </a>
         </div>
 
       </div>
