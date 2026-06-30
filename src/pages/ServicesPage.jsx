@@ -6,6 +6,7 @@ import { SectionLabel } from '../components/ui/SectionLabel';
 import { Button } from '../components/ui/Button';
 import { services } from '../data/services';
 import heroBg from '/src/assets/images/services/hero_result.webp';
+import residentialImg from '/src/assets/images/services/residential_result.webp';
 
 export const ServicesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -124,7 +125,7 @@ Please contact me regarding my project.`;
                 {/* Image Column */}
                 <div className="service-strip-image-col">
                   <img 
-                    src={service.image} 
+                    src={service.id === 1 ? residentialImg : service.image} 
                     alt={service.title} 
                     className="service-strip-image"
                     loading="lazy"
