@@ -97,7 +97,7 @@ export const Footer = () => {
               <div className="footer-info-item">
                 <FaWhatsapp />
                 <a 
-                  href="https://wa.me/91XXXXXXXXXX" 
+                  href="https://wa.me/917351901329" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="clickable"

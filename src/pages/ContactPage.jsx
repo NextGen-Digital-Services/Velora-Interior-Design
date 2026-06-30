@@ -239,7 +239,7 @@ export const ContactPage = () => {
                   <h5>WhatsApp</h5>
                   <p>
                     <a 
-                      href="https://wa.me/91XXXXXXXXXX" 
+                      href="https://wa.me/917351901329" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="clickable"
@@ -261,7 +261,7 @@ export const ContactPage = () => {
             <p>Chat directly with our lead interior designers on WhatsApp for quick feedback.</p>
           </div>
           <a 
-            href="https://wa.me/91XXXXXXXXXX" 
+            href="https://wa.me/917351901329" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="whatsapp-btn-large clickable"
