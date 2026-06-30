@@ -3,6 +3,7 @@ import React from 'react';
 import { FaArrowDown } from 'react-icons/fa';
 import { Button } from '../ui/Button';
 import { SectionLabel } from '../ui/SectionLabel';
+import heroBg from '/src/assets/images/home/hero_result.webp';
 
 export const HeroSection = () => {
   const handleScrollDown = () => {
@@ -13,7 +14,7 @@ export const HeroSection = () => {
   };
 
   const bgStyle = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1920&q=80')"
+    backgroundImage: `url('${heroBg}')`
   };
 
   return (
