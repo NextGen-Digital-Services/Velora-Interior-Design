@@ -13,11 +13,7 @@ export const PortfolioPage = () => {
     'Luxury Villa',
     'Penthouse',
     'Corporate Office',
-    'Luxury Retail',
-    'Boutique Hotel',
-    'Modern Kitchen',
-    'Executive Suite',
-    'Yacht Interior'
+    'Modern Kitchen'
   ];
 
   const filteredProjects = useFilteredProjects(projects, activeCategory);
