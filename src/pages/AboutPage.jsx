@@ -5,12 +5,13 @@ import { SectionLabel } from '../components/ui/SectionLabel';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { teamMembers } from '../data/teamMembers';
 import soloman from "../assets/about/soloman.webp";
+import heroBg from "/src/assets/images/about/hero_result.webp";
 
 
 
 export const AboutPage = () => {
   const heroStyle = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80')",
+    backgroundImage: `url('${heroBg}')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '45vh',
