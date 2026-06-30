@@ -1,14 +1,37 @@
 /* FILE: src/components/sections/PortfolioPreview.jsx */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SectionLabel } from '../ui/SectionLabel';
 import { SectionHeading } from '../ui/SectionHeading';
-import { ProjectCard } from '../ui/ProjectCard';
 import { Button } from '../ui/Button';
-import { projects } from '../../data/projects';
+import img22 from '/src/assets/images/portfolio/home(sec)1/22_result.webp';
+import img30 from '/src/assets/images/portfolio/home(sec)1/30_result.webp';
+import img44 from '/src/assets/images/portfolio/home(sec)1/44_result.webp';
 
 export const PortfolioPreview = () => {
-  // Take first 6 projects
-  const previewProjects = projects.slice(0, 6);
+  const previewProjects = [
+    {
+      id: 22,
+      heroImage: img22,
+      title: "Fumed Oak Chef Kitchen",
+      category: "Modern Kitchen",
+      slug: "fumed-oak-chef-kitchen"
+    },
+    {
+      id: 30,
+      heroImage: img30,
+      title: "Calacatta Quartz Kitchen",
+      category: "Modern Kitchen",
+      slug: "calacatta-quartz-kitchen"
+    },
+    {
+      id: 44,
+      heroImage: img44,
+      title: "Opulence Perfume Boutique",
+      category: "Luxury Retail",
+      slug: "opulence-perfume-boutique"
+    }
+  ];
 
   return (
     <section className="section-padding reveal" style={{ backgroundColor: 'var(--color-slate)' }}>
@@ -24,12 +47,31 @@ export const PortfolioPreview = () => {
         <div className="portfolio-preview-grid">
           {previewProjects.map((project, index) => (
             <div key={project.id} className={`reveal stagger-${(index % 3) + 1}`}>
-              <ProjectCard 
-                image={project.heroImage}
-                title={project.title}
-                category={project.category}
-                slug={project.slug}
-              />
+              <div className="premium-card-wrapper">
+                {/* Blurred image background for dynamic custom color glow */}
+                <img 
+                  src={project.heroImage} 
+                  alt="" 
+                  className="premium-card-glow" 
+                  loading="lazy"
+                />
+                
+                <div className="premium-card">
+                  <img 
+                    src={project.heroImage} 
+                    alt={project.title} 
+                    className="premium-card-image"
+                    loading="lazy"
+                  />
+                  <div className="premium-card-overlay">
+                    <span className="premium-card-category">{project.category}</span>
+                    <h3 className="premium-card-title">{project.title}</h3>
+                    <Link to={`/portfolio/${project.slug}`} className="premium-card-link clickable">
+                      View Details &rarr;
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>

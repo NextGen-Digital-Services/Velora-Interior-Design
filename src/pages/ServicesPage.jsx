@@ -1,5 +1,5 @@
 /* FILE: src/pages/ServicesPage.jsx */
-import React from 'react';
+import React, { useState } from 'react';
 import * as MdIcons from 'react-icons/md';
 import { FaCheck } from 'react-icons/fa';
 import { SectionLabel } from '../components/ui/SectionLabel';
@@ -7,8 +7,86 @@ import { Button } from '../components/ui/Button';
 import { services } from '../data/services';
 
 export const ServicesPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    details: ''
+  });
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleRequestConsultation = (serviceTitle) => {
+    setSelectedService(serviceTitle);
+    setErrors({});
+    setIsModalOpen(true);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Full name is required';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+
+    const message = `Hello Velora Interior Design,
+
+I would like to request a consultation.
+
+Name: ${formData.name.trim()}
+Phone: ${formData.phone.trim()}
+Email: ${formData.email.trim()}
+Service: ${selectedService}
+Project Details: ${formData.details.trim() || 'Not specified'}
+
+Please contact me regarding my project.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/917351901329?text=${encodedMessage}`;
+
+    setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
+      setIsLoading(false);
+      setIsModalOpen(false);
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        details: ''
+      });
+    }, 1500);
+  };
+
   const heroStyle = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80')",
+    backgroundImage: "url('https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1920&q=80')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '40vh',
@@ -73,7 +151,11 @@ export const ServicesPage = () => {
                   </div>
 
                   <div className="service-cta-btn">
-                    <Button variant="outline" size="md" href="/contact">
+                    <Button 
+                      variant="outline" 
+                      size="md" 
+                      onClick={() => handleRequestConsultation(service.title)}
+                    >
                       Request Consultation &rarr;
                     </Button>
                   </div>
@@ -91,6 +173,110 @@ export const ServicesPage = () => {
           </section>
         );
       })}
+
+      {/* 3. Consultation Modal */}
+      {isModalOpen && (
+        <div className="consultation-modal-overlay" onClick={() => !isLoading && setIsModalOpen(false)}>
+          <div className="consultation-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => !isLoading && setIsModalOpen(false)} aria-label="Close modal">
+              &times;
+            </button>
+            <div className="modal-header">
+              <span className="modal-label">Exclusive Service Request</span>
+              <h2 className="modal-title">Request Consultation</h2>
+              <p className="modal-subtitle">Share your vision with us, and we will redirect you to WhatsApp to connect with our design team.</p>
+            </div>
+            
+            <form onSubmit={handleSubmit} className="modal-form">
+              <div className="form-group">
+                <label htmlFor="modal-name">Full Name *</label>
+                <input 
+                  type="text" 
+                  id="modal-name" 
+                  name="name" 
+                  value={formData.name} 
+                  onChange={handleInputChange} 
+                  placeholder="e.g. Elena Vance"
+                  className={errors.name ? 'input-error' : ''}
+                  disabled={isLoading}
+                  required
+                />
+                {errors.name && <span className="error-text">{errors.name}</span>}
+              </div>
+
+              <div className="form-group-row">
+                <div className="form-group">
+                  <label htmlFor="modal-phone">Phone Number *</label>
+                  <input 
+                    type="tel" 
+                    id="modal-phone" 
+                    name="phone" 
+                    value={formData.phone} 
+                    onChange={handleInputChange} 
+                    placeholder="e.g. +91 98765 43210"
+                    className={errors.phone ? 'input-error' : ''}
+                    disabled={isLoading}
+                    required
+                  />
+                  {errors.phone && <span className="error-text">{errors.phone}</span>}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="modal-email">Email Address *</label>
+                  <input 
+                    type="email" 
+                    id="modal-email" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleInputChange} 
+                    placeholder="e.g. elena@apexholdings.com"
+                    className={errors.email ? 'input-error' : ''}
+                    disabled={isLoading}
+                    required
+                  />
+                  {errors.email && <span className="error-text">{errors.email}</span>}
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="modal-service">Service Interested In</label>
+                <input 
+                  type="text" 
+                  id="modal-service" 
+                  name="service" 
+                  value={selectedService} 
+                  disabled
+                  className="input-disabled"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="modal-details">Project Details</label>
+                <textarea 
+                  id="modal-details" 
+                  name="details" 
+                  value={formData.details} 
+                  onChange={handleInputChange} 
+                  placeholder="Tell us about your space, dimensions, or design style preferences..."
+                  rows="4"
+                  disabled={isLoading}
+                />
+              </div>
+
+              <button type="submit" className="modal-submit-btn" disabled={isLoading}>
+                {isLoading ? (
+                  <span className="btn-loading-state">
+                    <span className="spinner"></span>
+                    Redirecting to WhatsApp...
+                  </span>
+                ) : (
+                  <span>Initiate Consultation &rarr;</span>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Custom CSS for Services Page */}
       <style>{`
@@ -196,6 +382,180 @@ export const ServicesPage = () => {
           background: rgba(201, 169, 110, 0.1);
           margin-top: 80px;
         }
+        
+        /* Modal Styles */
+        .consultation-modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(10, 10, 10, 0.85);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          animation: fadeIn 0.4s ease;
+        }
+        .consultation-modal-content {
+          background: #141414;
+          border: 1px solid rgba(201, 169, 110, 0.2);
+          border-radius: 16px;
+          width: 100%;
+          max-width: 650px;
+          padding: 40px;
+          position: relative;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+          animation: scaleUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .modal-close-btn {
+          position: absolute;
+          top: 24px;
+          right: 24px;
+          background: transparent;
+          border: none;
+          color: var(--color-ivory);
+          font-size: 32px;
+          cursor: pointer;
+          opacity: 0.6;
+          transition: opacity 0.3s ease;
+          line-height: 1;
+        }
+        .modal-close-btn:hover {
+          opacity: 1;
+          color: var(--color-gold);
+        }
+        .modal-header {
+          margin-bottom: 30px;
+          text-align: center;
+        }
+        .modal-label {
+          font-family: var(--font-accent);
+          font-style: italic;
+          color: var(--color-gold);
+          font-size: 14px;
+          letter-spacing: 0.1em;
+        }
+        .modal-title {
+          font-family: var(--font-display);
+          font-size: 32px;
+          color: var(--color-white);
+          margin-top: 8px;
+          margin-bottom: 12px;
+          font-weight: 500;
+        }
+        .modal-subtitle {
+          font-size: 14px;
+          line-height: 1.6;
+          color: var(--color-ivory);
+          opacity: 0.7;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+        .modal-form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        .form-group-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          text-align: left;
+        }
+        .form-group label {
+          font-family: var(--font-body);
+          font-size: 12px;
+          text-transform: uppercase;
+          color: var(--color-gold);
+          letter-spacing: 0.1em;
+        }
+        .form-group input, .form-group textarea {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(245, 240, 232, 0.12);
+          border-radius: 8px;
+          padding: 12px 16px;
+          color: var(--color-white);
+          font-family: var(--font-body);
+          font-size: 14px;
+          transition: all 0.3s ease;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+          outline: none;
+          border-color: var(--color-gold);
+          background: rgba(255, 255, 255, 0.06);
+          box-shadow: 0 0 0 1px var(--color-gold);
+        }
+        .form-group input.input-disabled {
+          background: rgba(255, 255, 255, 0.01);
+          color: rgba(245, 240, 232, 0.4);
+          cursor: not-allowed;
+          border-color: rgba(245, 240, 232, 0.05);
+        }
+        .form-group .input-error {
+          border-color: #E74C3C;
+        }
+        .error-text {
+          color: #E74C3C;
+          font-size: 11px;
+          margin-top: -2px;
+        }
+        .modal-submit-btn {
+          background: var(--color-gold);
+          color: var(--color-bg);
+          border: 1px solid var(--color-gold);
+          padding: 16px;
+          font-family: var(--font-body);
+          font-size: 13px;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-weight: 600;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .modal-submit-btn:hover:not(:disabled) {
+          background: transparent;
+          color: var(--color-gold);
+        }
+        .modal-submit-btn:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+        .btn-loading-state {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .spinner {
+          width: 18px;
+          height: 18px;
+          border: 2px solid rgba(26, 26, 26, 0.1);
+          border-top-color: var(--color-bg);
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          display: inline-block;
+        }
+        .modal-submit-btn:hover .spinner {
+          border-top-color: var(--color-gold);
+        }
+        
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+
         @media (max-width: 991px) {
           .service-strip-grid, .service-strip-section.odd .service-strip-grid {
             grid-template-columns: 1fr !important;
@@ -219,6 +579,15 @@ export const ServicesPage = () => {
           }
           .service-strip-title {
             font-size: 26px;
+          }
+        }
+        @media (max-width: 576px) {
+          .form-group-row {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+          .consultation-modal-content {
+            padding: 30px 20px;
           }
         }
       `}</style>
