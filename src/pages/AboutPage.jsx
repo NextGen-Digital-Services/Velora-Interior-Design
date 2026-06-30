@@ -6,6 +6,7 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { teamMembers } from '../data/teamMembers';
 import soloman from "../assets/about/soloman.webp";
 import heroBg from "/src/assets/images/about/hero_result.webp";
+import mirrorImg from "/src/assets/images/about/mirror_result.webp";
 
 
 
@@ -60,7 +61,7 @@ export const AboutPage = () => {
             </div>
             <div className="story-image-column">
               <img 
-                src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=800&q=80" 
+                src={mirrorImg} 
                 alt="Velora Luxury Showroom"
                 className="story-image"
                 loading="lazy"
