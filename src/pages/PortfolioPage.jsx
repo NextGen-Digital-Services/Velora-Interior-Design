@@ -1,9 +1,7 @@
 /* FILE: src/pages/PortfolioPage.jsx */
 import React, { useState } from 'react';
 import { SectionLabel } from '../components/ui/SectionLabel';
-import { ProjectCard } from '../components/ui/ProjectCard';
-import { useFilteredProjects } from '../hooks/useFilteredProjects';
-import { projects } from '../data/projects';
+import boutiquehotel from '../assets/images/portfolio/boutiquehotel.webp';
 
 export const PortfolioPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -16,13 +14,14 @@ export const PortfolioPage = () => {
     'Modern Kitchen'
   ];
 
-  const filteredProjects = useFilteredProjects(projects, activeCategory);
-
   const heroStyle = {
-    backgroundColor: '#0F0F0F',
-    padding: '80px 24px',
+    backgroundImage: `linear-gradient(rgba(15, 15, 15, 0.75), rgba(15, 15, 15, 0.75)), url(${boutiquehotel})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    padding: '120px 24px',
     textAlign: 'center',
-    borderBottom: '1px solid rgba(201, 169, 110, 0.15)'
+    borderBottom: '1px solid rgba(201, 169, 110, 0.15)',
+    position: 'relative'
   };
 
   const pageTitleStyle = {
@@ -62,19 +61,7 @@ export const PortfolioPage = () => {
           ))}
         </div>
 
-        {/* 3. Portfolio Grid */}
-        <div className="portfolio-grid reveal">
-          {filteredProjects.map((project, index) => (
-            <div key={project.id} className="reveal stagger-1">
-              <ProjectCard
-                image={project.heroImage}
-                title={project.title}
-                category={project.category}
-                slug={project.slug}
-              />
-            </div>
-          ))}
-        </div>
+        {/* 3. Portfolio Grid - Removed project image cards */}
       </div>
 
       <style>{`
