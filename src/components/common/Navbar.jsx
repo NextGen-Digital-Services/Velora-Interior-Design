@@ -38,7 +38,6 @@ export const Navbar = () => {
     { path: '/portfolio', label: 'Portfolio' },
     { path: '/process', label: 'Process' },
     { path: '/testimonials', label: 'Testimonials' },
-    { path: '/blog', label: 'Blog' },
     { path: '/contact', label: 'Contact' }
   ];
 

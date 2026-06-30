@@ -15,7 +15,6 @@ import PortfolioPage from '../pages/PortfolioPage';
 import ProjectDetailPage from '../pages/ProjectDetailPage';
 import ProcessPage from '../pages/ProcessPage';
 import TestimonialsPage from '../pages/TestimonialsPage';
-import BlogPage from '../pages/BlogPage';
 import ContactPage from '../pages/ContactPage';
 
 // Scroll Restoration & Dynamic Reveal Re-binding Component
@@ -91,7 +90,6 @@ export const AppRoutes = () => {
         <Route path="portfolio/:slug" element={<ProjectDetailPage />} />
         <Route path="process" element={<ProcessPage />} />
         <Route path="testimonials" element={<TestimonialsPage />} />
-        <Route path="blog" element={<BlogPage />} />
         <Route path="contact" element={<ContactPage />} />
       </Route>
     </Routes>

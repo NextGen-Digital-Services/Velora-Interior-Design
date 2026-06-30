@@ -47,9 +47,6 @@ export const Footer = () => {
                 <Link to="/testimonials" className="clickable">Testimonials</Link>
               </li>
               <li className="footer-link-item">
-                <Link to="/blog" className="clickable">Blog</Link>
-              </li>
-              <li className="footer-link-item">
                 <Link to="/contact" className="clickable">Contact</Link>
               </li>
             </ul>
