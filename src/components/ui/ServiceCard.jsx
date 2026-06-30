@@ -1,8 +1,8 @@
 /* FILE: src/components/ui/ServiceCard.jsx */
-import React from 'react';
+import React, { memo } from 'react';
 import * as MdIcons from 'react-icons/md';
 
-export const ServiceCard = ({ icon, title, description, className = '' }) => {
+export const ServiceCard = memo(({ icon, title, description, className = '' }) => {
   // Resolve icon component dynamically
   const IconComponent = MdIcons[icon] || MdIcons.MdHelpOutline;
 
@@ -59,6 +59,6 @@ export const ServiceCard = ({ icon, title, description, className = '' }) => {
       <p style={descStyle}>{description}</p>
     </div>
   );
-};
+});
 
 export default ServiceCard;

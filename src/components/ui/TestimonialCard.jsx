@@ -98,7 +98,7 @@ export const TestimonialCard = ({
 
       <div style={clientInfoContainerStyle}>
         {image ? (
-          <img src={image} alt={name} style={avatarStyle} />
+          <img src={image} alt={name} style={avatarStyle} width="48" height="48" loading="lazy" />
         ) : (
           <div style={avatarStyle}>{firstLetter}</div>
         )}

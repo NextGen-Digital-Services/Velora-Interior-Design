@@ -65,6 +65,8 @@ export const AboutPage = () => {
                 alt="Velora Luxury Showroom"
                 className="story-image"
                 loading="lazy"
+                width="800"
+                height="600"
               />
             </div>
           </div>

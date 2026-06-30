@@ -129,6 +129,8 @@ Please contact me regarding my project.`;
                     alt={service.title} 
                     className="service-strip-image"
                     loading="lazy"
+                    width="600"
+                    height="400"
                   />
                 </div>
 

@@ -1,5 +1,4 @@
-/* FILE: src/routes/AppRoutes.jsx */
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
@@ -7,15 +6,15 @@ import WhatsAppButton from '../components/common/WhatsAppButton';
 import BackToTop from '../components/common/BackToTop';
 import CustomCursor from '../components/common/CustomCursor';
 
-// Import Pages
-import HomePage from '../pages/HomePage';
-import AboutPage from '../pages/AboutPage';
-import ServicesPage from '../pages/ServicesPage';
-import PortfolioPage from '../pages/PortfolioPage';
-import ProjectDetailPage from '../pages/ProjectDetailPage';
-import ProcessPage from '../pages/ProcessPage';
-import TestimonialsPage from '../pages/TestimonialsPage';
-import ContactPage from '../pages/ContactPage';
+// Lazy Loaded Pages
+const HomePage = lazy(() => import('../pages/HomePage'));
+const AboutPage = lazy(() => import('../pages/AboutPage'));
+const ServicesPage = lazy(() => import('../pages/ServicesPage'));
+const PortfolioPage = lazy(() => import('../pages/PortfolioPage'));
+const ProjectDetailPage = lazy(() => import('../pages/ProjectDetailPage'));
+const ProcessPage = lazy(() => import('../pages/ProcessPage'));
+const TestimonialsPage = lazy(() => import('../pages/TestimonialsPage'));
+const ContactPage = lazy(() => import('../pages/ContactPage'));
 
 // Scroll Restoration & Dynamic Reveal Re-binding Component
 const ScrollToTopAndBindAnimations = () => {
@@ -69,7 +68,9 @@ const Layout = () => {
       <Navbar />
       
       <main style={{ minHeight: '80vh', paddingTop: '90px' }} className="main-content-panel">
-        <Outlet />
+        <Suspense fallback={<div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-gold)', fontFamily: 'var(--font-accent)' }}>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </main>
       
       <Footer />

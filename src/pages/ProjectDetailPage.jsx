@@ -123,6 +123,8 @@ export const ProjectDetailPage = () => {
                   alt={`${project.title} capture ${idx + 1}`} 
                   className="gallery-photo"
                   loading="lazy"
+                  width="800"
+                  height="600"
                 />
                 <div className="gallery-photo-hover-overlay">
                   <span>Enlarge Photo</span>

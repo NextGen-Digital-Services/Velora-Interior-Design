@@ -76,6 +76,8 @@ export const ProcessPage = () => {
                       alt={step.title} 
                       className="process-step-img"
                       loading="lazy"
+                      width="800"
+                      height="600"
                     />
                   </div>
 

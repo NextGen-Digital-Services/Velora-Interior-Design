@@ -54,6 +54,8 @@ export const PortfolioPreview = () => {
                   alt="" 
                   className="premium-card-glow" 
                   loading="lazy"
+                  width="800"
+                  height="600"
                 />
                 
                 <div className="premium-card">
@@ -62,6 +64,8 @@ export const PortfolioPreview = () => {
                     alt={project.title} 
                     className="premium-card-image"
                     loading="lazy"
+                    width="800"
+                    height="600"
                   />
                   <div className="premium-card-overlay">
                     <span className="premium-card-category">{project.category}</span>
