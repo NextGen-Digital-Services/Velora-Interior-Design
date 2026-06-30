@@ -125,7 +125,6 @@ export const ContactPage = () => {
                     <option value="Corporate Office Design">Corporate Design</option>
                     <option value="Hospitality Interior Design">Hospitality Design</option>
                     <option value="Luxury Retail Design">Retail Design</option>
-                    <option value="Yacht Interior Design">Yacht Design</option>
                     <option value="Modern Kitchen & Bath">Kitchen & Bath</option>
                     <option value="Custom Furniture & Lighting">Custom Furniture</option>
                     <option value="Fit-Out & Detailing">Fit-Out Detailing</option>

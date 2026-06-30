@@ -63,21 +63,6 @@ export const services = [
   },
   {
     id: 5,
-    icon: "MdDirectionsBoat",
-    title: "Yacht Interior Design",
-    shortDesc: "Bespoke marine interiors balancing lightweight materials with residential grandeur.",
-    description: "Marine interior layouts demand specialization to navigate structural curves, safety rules, and moisture. Velora crafts custom furniture contoured to the vessel hull, using lightweight carbon fiber cores finished with leathers and brass details.",
-    inclusions: [
-      "Vessel hull-contour custom furniture engineering",
-      "Lightweight stone veneer installations",
-      "Seawater-resistant leather & fabric selection",
-      "Discreet sea-travel cabinet locking mechanisms",
-      "Polished marine brass & teak finishes"
-    ],
-    image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 6,
     icon: "MdSoupKitchen",
     title: "Modern Kitchen & Bath",
     shortDesc: "Sleek, integrated culinary spaces and spa-like bathroom retreats.",
@@ -92,7 +77,7 @@ export const services = [
     image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 7,
+    id: 6,
     icon: "MdLightbulb",
     title: "Custom Furniture & Lighting",
     shortDesc: "Exclusive, single-run furniture pieces and architectural lighting schemes.",
@@ -107,7 +92,7 @@ export const services = [
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 8,
+    id: 7,
     icon: "MdArchitecture",
     title: "Fit-Out & Detailing",
     shortDesc: "Complete execution supervision, custom millwork, and turnkey handovers.",

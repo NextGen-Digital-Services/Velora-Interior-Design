@@ -4,7 +4,9 @@ import { FaEye, FaBullseye, FaAward, FaCrown, FaStar, FaShieldAlt } from 'react-
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { teamMembers } from '../data/teamMembers';
-import soloman from '../'
+import soloman from "../assets/about/soloman.webp";
+
+
 
 export const AboutPage = () => {
   const heroStyle = {
@@ -19,6 +21,7 @@ export const AboutPage = () => {
   };
 
   // Resolve team photo fallbacks
+
   const teamPhotos = [
     'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
     'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80',
@@ -27,6 +30,7 @@ export const AboutPage = () => {
     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
     'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'
   ];
+
 
   return (
     <div className="about-page-container">
@@ -70,11 +74,13 @@ export const AboutPage = () => {
         <div className="container">
           <div className="founder-grid">
             <div className="founder-image-column">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" 
-                alt="Victoria Sterling - Founder"
+              <img
+                src={soloman}
+                alt="Soloman - Founder of Velora Interior Design"
                 className="founder-image"
-                loading="lazy"
+                loading="eager"
+                width="600"
+                height="800"
               />
             </div>
             <div className="founder-text-column">
