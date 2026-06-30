@@ -1,19 +1,11 @@
 /* FILE: src/pages/PortfolioPage.jsx */
-import React, { useState } from 'react';
+import React from 'react';
 import { SectionLabel } from '../components/ui/SectionLabel';
+import { ProjectCard } from '../components/ui/ProjectCard';
+import { projects } from '../data/projects';
 import boutiquehotel from '../assets/images/portfolio/boutiquehotel.webp';
 
 export const PortfolioPage = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const categories = [
-    'All',
-    'Luxury Villa',
-    'Penthouse',
-    'Corporate Office',
-    'Modern Kitchen'
-  ];
-
   const heroStyle = {
     backgroundImage: `linear-gradient(rgba(15, 15, 15, 0.75), rgba(15, 15, 15, 0.75)), url(${boutiquehotel})`,
     backgroundSize: 'cover',
@@ -48,20 +40,19 @@ export const PortfolioPage = () => {
       </div>
 
       <div className="container" style={{ padding: '60px 24px' }}>
-        {/* 2. Filter Bar */}
-        <div className="filter-bar reveal">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`filter-button clickable ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
+        {/* 3. Portfolio Grid */}
+        <div className="portfolio-grid reveal">
+          {projects.map((project) => (
+            <div key={project.id} className="reveal stagger-1">
+              <ProjectCard
+                image={project.heroImage}
+                title={project.title}
+                category={project.category}
+                slug={project.slug}
+              />
+            </div>
           ))}
         </div>
-
-        {/* 3. Portfolio Grid - Removed project image cards */}
       </div>
 
       <style>{`

@@ -1,140 +1,49 @@
 /* FILE: src/data/projects.js */
+import img2 from '../assets/portfolio/2_result.webp';
+import img8 from '../assets/portfolio/8_result.webp';
+import img15 from '../assets/portfolio/15_result.webp';
+import img16 from '../assets/portfolio/16_result.webp';
+import img17 from '../assets/portfolio/17_result.webp';
+import img21 from '../assets/portfolio/21_result.webp';
+import img22 from '../assets/portfolio/22_result.webp';
+import img23 from '../assets/portfolio/23_result.webp';
+import img24 from '../assets/portfolio/24_result.webp';
+import img26 from '../assets/portfolio/26_result.webp';
+import img27 from '../assets/portfolio/27_result.webp';
+import img31 from '../assets/portfolio/31_result.webp';
+import img34 from '../assets/portfolio/34_result.webp';
+import img39 from '../assets/portfolio/39_result.webp';
+import img42 from '../assets/portfolio/42_result.webp';
+import img44 from '../assets/portfolio/44_result.webp';
+import img46 from '../assets/portfolio/46_result.webp';
+import img47 from '../assets/portfolio/47_result.webp';
+import img48 from '../assets/portfolio/48_result.webp';
+import img49 from '../assets/portfolio/49_result.webp';
 
-/// Helper to generate Unsplash URLs
-const getUnsplashUrl = (id) => `https://images.unsplash.com/${id}?w=800&q=80&auto=format&fit=crop`;
-
-// A bank of high-quality luxury interior Unsplash image IDs
-const imageIds = {
-  villa: [
-    'photo-1600596542815-ffad4c1539a9',
-    'photo-1512917774080-9991f1c4c750',
-    'photo-1613490493576-4d4d0bc47d45',
-    'photo-1600607687939-ce8a6c25118c',
-    'photo-1600047509807-ba8f99d2cdde',
-    'photo-16005667533086-00f18fb6b3ea',
-    'photo-1600210491892-03d54c0aaf87',
-    'photo-1583608205776-bfd35f0d9f83'
-  ],
-  penthouse: [
-    'photo-1586023492125-27b2c045efd7',
-    'photo-1555041469-a586c61ea9bc',
-    'photo-1618219908412-a29a1bb7b86e',
-    'photo-1560185007-cde436f6a4d0',
-    'photo-1567767292278-a2f38dac25b2',
-    'photo-1600210492493-0946911123ea',
-    'photo-1600585154340-be6161a56a0c',
-    'photo-1583847268964-b28dc8f51f92',
-    'photo-1595526114035-0d45ed16cfbf',
-    'photo-1493809842364-78817add7ffb'
-  ],
-  office: [
-    'photo-1497366216548-37526070297c',
-    'photo-1497366754035-f200968a6e72',
-    'photo-1524758631624-e2822e304c36',
-    'photo-1497215842964-222b430dc094',
-    'photo-1527192491265-7e15c55b1ed2',
-    'photo-1568992687947-868a62a9f521',
-    'photo-1572025442646-866d16c84a54',
-    'photo-1593642632559-0c6d3fc62b89'
-  ],
-  retail: [
-    'photo-1441986300917-64674bd600d8',
-    'photo-1560179707-f14e90ef3623',
-    'photo-1577495508326-19a1b3cf65b7',
-    'photo-1497215728101-856f4ea42174',
-    'photo-1604328698692-f76ea9498e76'
-  ],
-  hotel: [
-    'photo-1616594039964-ae9021a400a0',
-    'photo-1505693416388-ac5ce068fe85',
-    'photo-1540518614846-7eded433c457',
-    'photo-1552321554-5fefe8c9ef14',
-    'photo-1521783988139-89397d761dce',
-    'photo-1588046130717-0eb0c9a3ba15',
-    'photo-1631049307264-da0ec9d70304',
-    'photo-1617806118233-18e1de247200',
-    'photo-1592229506151-845940174bb0',
-    'photo-1484101403633-562f891dc89a'
-  ],
-  kitchen: [
-    'photo-1556909114-f6e7ad7d3136',
-    'photo-1565538810643-b5bdb714032a',
-    'photo-1556909172-54557c7e4fb7',
-    'photo-1600489000022-c2086d79f9d4',
-    'photo-1484154218962-a197022b5858',
-    'photo-1556909172-89cf0b3f98f8',
-    'photo-1630699144867-37acec76df52',
-    'photo-1604709177225-055f99402ea3',
-    'photo-1583845112203-29329902332e'
-  ],
-  suite: [
-    'photo-1572025442646-866d16c84a54',
-    'photo-1593642632559-0c6d3fc62b89',
-    'photo-1595514535116-9614927c5167',
-    'photo-1616137466211-f939a420be84',
-    'photo-1414235077428-338989a2e8c0',
-    'photo-1550966871-3ed3cbe818bb'
-  ],
-  yacht: [
-    'photo-1583608205776-bfd35f0d9f83',
-    'photo-1583847268964-b28dc8f51f92',
-    'photo-1595526114035-0d45ed16cfbf',
-    'photo-1493809842364-78817add7ffb',
-    'photo-1631049307264-da0ec9d70304',
-    'photo-1617806118233-18e1de247200'
-  ]
+const localImagesMap = {
+  2: img2,
+  8: img8,
+  15: img15,
+  16: img16,
+  17: img17,
+  21: img21,
+  22: img22,
+  23: img23,
+  24: img24,
+  26: img26,
+  27: img27,
+  31: img31,
+  34: img34,
+  39: img39,
+  42: img42,
+  44: img44,
+  46: img46,
+  47: img47,
+  48: img48,
+  49: img49
 };
 
-// Map category string to the key in imageIds
-const getCategoryKey = (cat) => {
-  switch (cat) {
-    case 'Luxury Villa': return 'villa';
-    case 'Penthouse': return 'penthouse';
-    case 'Corporate Office': return 'office';
-    case 'Luxury Retail': return 'retail';
-    case 'Boutique Hotel': return 'hotel';
-    case 'Modern Kitchen': return 'kitchen';
-    case 'Executive Suite': return 'suite';
-    case 'Yacht Interior': return 'yacht';
-    default: return 'villa';
-  }
-};
 
-// Before & After image pools
-const beforeAfterImages = {
-  villa: {
-    before: 'photo-1584622650111-993a426fbf0a', // empty messy room
-    after: 'photo-1600596542815-ffad4c1539a9'
-  },
-  penthouse: {
-    before: 'photo-1513694203232-719a280e022f', 
-    after: 'photo-1586023492125-27b2c045efd7'
-  },
-  office: {
-    before: 'photo-1567401893414-76b7b1e5a7a5',
-    after: 'photo-1497366216548-37526070297c'
-  },
-  retail: {
-    before: 'photo-1600585154526-990dced4db0d',
-    after: 'photo-1441986300917-64674bd600d8'
-  },
-  hotel: {
-    before: 'photo-1584622650111-993a426fbf0a',
-    after: 'photo-1616594039964-ae9021a400a0'
-  },
-  kitchen: {
-    before: 'photo-1513694203232-719a280e022f',
-    after: 'photo-1556909114-f6e7ad7d3136'
-  },
-  suite: {
-    before: 'photo-1567401893414-76b7b1e5a7a5',
-    after: 'photo-1572025442646-866d16c84a54'
-  },
-  yacht: {
-    before: 'photo-1600585154526-990dced4db0d',
-    after: 'photo-1583608205776-bfd35f0d9f83'
-  }
-};
 
 // Rich details based on category
 const categoryDetails = {
@@ -282,112 +191,37 @@ const rawProjects = [
   { id: 50, title: "Penthouse Fifty-Five", category: "Penthouse", location: "Singapore", area: "4,000 sq ft", time: "7 months", style: "Glassmorphic Luxury", type: "Residential", featured: false }
 ];
 
-const projectHeroIds = {
-  1: 'photo-1600596542815-ffad4c1539a9',
-  2: 'photo-1586023492125-27b2c045efd7',
-  3: 'photo-1497366216548-37526070297c',
-  4: 'photo-1441986300917-64674bd600d8',
-  5: 'photo-1616594039964-ae9021a400a0',
-  6: 'photo-1556909114-f6e7ad7d3136',
-  7: 'photo-1572025442646-866d16c84a54',
-  8: 'photo-1583608205776-bfd35f0d9f83',
-  9: 'photo-1512917774080-9991f1c4c750',
-  10: 'photo-1555041469-a586c61ea9bc',
-  11: 'photo-1497366754035-f200968a6e72',
-  12: 'photo-1560179707-f14e90ef3623',
-  13: 'photo-1505693416388-ac5ce068fe85',
-  14: 'photo-1565538810643-b5bdb714032a',
-  15: 'photo-1593642632559-0c6d3fc62b89',
-  16: 'photo-1583847268964-b28dc8f51f92',
-  17: 'photo-1613490493576-4d4d0bc47d45',
-  18: 'photo-1618219908412-a29a1bb7b86e',
-  19: 'photo-1524758631624-e2822e304c36',
-  20: 'photo-1577495508326-19a1b3cf65b7',
-  21: 'photo-1540518614846-7eded433c457',
-  22: 'photo-1556909172-54557c7e4fb7',
-  23: 'photo-1595514535116-9614927c5167',
-  24: 'photo-1595526114035-0d45ed16cfbf',
-  25: 'photo-1600607687939-ce8a6c25118c',
-  26: 'photo-1560185007-cde436f6a4d0',
-  27: 'photo-1497215842964-222b430dc094',
-  28: 'photo-1497215728101-856f4ea42174',
-  29: 'photo-1552321554-5fefe8c9ef14',
-  30: 'photo-1600489000022-c2086d79f9d4',
-  31: 'photo-1616137466211-f939a420be84',
-  32: 'photo-1493809842364-78817add7ffb',
-  33: 'photo-1600047509807-ba8f99d2cdde',
-  34: 'photo-1567767292278-a2f38dac25b2',
-  35: 'photo-1527192491265-7e15c55b1ed2',
-  36: 'photo-1604328698692-f76ea9498e76',
-  37: 'photo-1521783988139-89397d761dce',
-  38: 'photo-1484154218962-a197022b5858',
-  39: 'photo-1414235077428-338989a2e8c0',
-  40: 'photo-1631049307264-da0ec9d70304',
-  41: 'photo-16005667533086-00f18fb6b3ea',
-  42: 'photo-1600210492493-0946911123ea',
-  43: 'photo-1568992687947-868a62a9f521',
-  44: 'photo-1517248135467-4c7edcad34c4',
-  45: 'photo-1588046130717-0eb0c9a3ba15',
-  46: 'photo-1556909172-89cf0b3f98f8',
-  47: 'photo-1550966871-3ed3cbe818bb',
-  48: 'photo-1617806118233-18e1de247200',
-  49: 'photo-1600210491892-03d54c0aaf87',
-  50: 'photo-1600585154340-be6161a56a0c'
-};
 
-const projectLocalImages = {
-  1: '/images/portfolio/luxury_villa.png',
-  2: '/images/portfolio/penthouse.png',
-  3: '/images/portfolio/corporate_office.png',
-  4: '/images/portfolio/luxury_retail.png',
-  5: '/images/portfolio/boutique_hotel.png',
-  6: '/images/portfolio/modern_kitchen.png',
-  7: '/images/portfolio/executive_suite.png',
-  8: '/images/portfolio/yacht_interior.png'
-};
 
-// Map and build the complete list of 50 projects
-export const projects = rawProjects.map((p) => {
-  const categoryKey = getCategoryKey(p.category);
-  const details = categoryDetails[p.category];
-  const imageIdsPool = imageIds[categoryKey] || imageIds.villa;
+// Map and build the complete list of 20 unique projects
+export const projects = rawProjects
+  .filter((p) => localImagesMap[p.id] !== undefined)
+  .map((p) => {
+    const details = categoryDetails[p.category] || {};
+    const heroImage = localImagesMap[p.id];
+    const afterImage = heroImage;
+    const beforeImage = heroImage;
+    const images = [heroImage];
 
-  const heroImageId = projectHeroIds[p.id] || imageIdsPool[0];
-  const galleryIds = [heroImageId, ...imageIdsPool.filter(id => id !== heroImageId)];
-  
-  const heroImage = projectLocalImages[p.id] || getUnsplashUrl(heroImageId);
-  const afterImage = heroImage;
-  const images = projectLocalImages[p.id]
-    ? [projectLocalImages[p.id], ...imageIdsPool.map((id) => getUnsplashUrl(id))]
-    : galleryIds.map((id) => getUnsplashUrl(id));
-  
-  const beforeImagesList = [
-    'photo-1584622650111-993a426fbf0a',
-    'photo-1513694203232-719a280e022f',
-    'photo-1567401893414-76b7b1e5a7a5',
-    'photo-1600585154526-990dced4db0d'
-  ];
-  const beforeImageId = beforeImagesList[p.id % beforeImagesList.length];
-
-  return {
-    id: p.id,
-    slug: p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-    title: p.title,
-    category: p.category,
-    location: p.location,
-    area: p.area,
-    completionTime: p.time,
-    designStyle: p.style,
-    projectType: p.type,
-    heroImage,
-    images,
-    beforeImage: getUnsplashUrl(beforeImageId),
-    afterImage,
-    description: details.description,
-    challenges: details.challenges,
-    concept: details.concept,
-    materials: details.materials,
-    testimonial: details.testimonial,
-    featured: p.featured
-  };
-});
+    return {
+      id: p.id,
+      slug: p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+      title: p.title,
+      category: p.category,
+      location: p.location,
+      area: p.area,
+      completionTime: p.time,
+      designStyle: p.style,
+      projectType: p.type,
+      heroImage,
+      images,
+      beforeImage,
+      afterImage,
+      description: details.description || '',
+      challenges: details.challenges || '',
+      concept: details.concept || '',
+      materials: details.materials || '',
+      testimonial: details.testimonial || {},
+      featured: p.featured
+    };
+  });

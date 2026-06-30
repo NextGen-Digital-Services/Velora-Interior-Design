@@ -4,31 +4,40 @@ import { SectionLabel } from '../ui/SectionLabel';
 import { SectionHeading } from '../ui/SectionHeading';
 import { BeforeAfterSlider } from '../ui/BeforeAfterSlider';
 
+import livingroomBefore from '../../assets/images/home/livingroom_before.webp';
+import livingroomAfter from '../../assets/images/home/livingroom_after.webp';
+import kitchenBefore from '../../assets/images/home/kitchen_before.webp';
+import kitchenAfter from '../../assets/images/home/kitchen_after.webp';
+import bedroomBefore from '../../assets/images/home/bedroom_before.webp';
+import bedroomAfter from '../../assets/images/home/bedroom_after.webp';
+import officeBefore from '../../assets/images/home/office_before.webp';
+import officeAfter from '../../assets/images/home/office_after.webp';
+
 export const BeforeAfterSection = () => {
   const transformations = [
     {
       id: 1,
       label: "Living Room",
-      before: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
-      after: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+      before: livingroomBefore,
+      after: livingroomAfter
     },
     {
       id: 2,
       label: "Modular Kitchen",
-      before: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
-      after: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"
+      before: kitchenBefore,
+      after: kitchenAfter
     },
     {
       id: 3,
       label: "Master Bedroom",
-      before: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-      after: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80"
+      before: bedroomBefore,
+      after: bedroomAfter
     },
     {
       id: 4,
       label: "Office Space",
-      before: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80",
-      after: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+      before: officeBefore,
+      after: officeAfter
     }
   ];
 

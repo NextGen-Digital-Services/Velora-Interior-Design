@@ -1,6 +1,5 @@
 /* FILE: src/components/ui/ProjectCard.jsx */
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export const ProjectCard = (props) => {
   const project = props.project || {
@@ -17,16 +16,9 @@ export const ProjectCard = (props) => {
       <img 
         src={project.heroImage || project.image} 
         alt={project.title}
-        onError={(e) => { e.target.src = 'https://picsum.photos/seed/fallback/800/600' }}
+        className="project-card-image"
         style={{width:'100%', height:'100%', objectFit:'cover'}}
       />
-      <div className="project-card-overlay">
-        <span className="project-card-category">{project.category}</span>
-        <h3 className="project-card-title">{project.title}</h3>
-        <Link to={`/portfolio/${project.slug}`} className="project-card-link clickable">
-          View Details &rarr;
-        </Link>
-      </div>
     </div>
   );
 };
