@@ -5,6 +5,7 @@ import { FaCheck } from 'react-icons/fa';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { Button } from '../components/ui/Button';
 import { services } from '../data/services';
+import heroBg from '/src/assets/images/services/hero_result.webp';
 
 export const ServicesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,7 +87,7 @@ Please contact me regarding my project.`;
   };
 
   const heroStyle = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1920&q=80')",
+    backgroundImage: `url('${heroBg}')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '40vh',
