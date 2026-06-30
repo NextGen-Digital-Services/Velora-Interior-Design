@@ -4,6 +4,7 @@ import { FaEye, FaBullseye, FaAward, FaCrown, FaStar, FaShieldAlt } from 'react-
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { teamMembers } from '../data/teamMembers';
+import soloman from '../'
 
 export const AboutPage = () => {
   const heroStyle = {
@@ -78,10 +79,10 @@ export const AboutPage = () => {
             </div>
             <div className="founder-text-column">
               <SectionLabel text="Creative Director" />
-              <h2 className="founder-name">Victoria Sterling</h2>
+              <h2 className="founder-name">Akib </h2>
               <span className="founder-subtitle">Founder, Velora Interior Design</span>
               <p className="founder-bio">
-                Victoria Sterling has spent nearly two decades defining high-end interiors. Her design philosophy revolves around symmetry, light manipulation, and exposing the organic patterns of raw stone and wood veneers.
+                Akib has spent nearly two decades defining high-end interiors. His design philosophy revolves around symmetry, light manipulation, and exposing the organic patterns of raw stone and wood veneers.
               </p>
               <blockquote className="founder-quote">
                 "A luxury space should not scream for attention. It should reveal itself slowly, conveying absolute grounding comfort, structural precision, and subtle authority."
@@ -91,7 +92,8 @@ export const AboutPage = () => {
         </div>
       </section>
 
-      {/* 4. Team Grid Section */}
+      {/*{/* 4. Team Grid Section */}
+      {/*
       <section className="section-padding reveal">
         <div className="container">
           <div style={{ textAlign: 'center' }}>
@@ -121,6 +123,7 @@ export const AboutPage = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* 5. Mission & Vision Section */}
       <section className="section-padding reveal" style={{ backgroundColor: 'var(--color-slate)' }}>

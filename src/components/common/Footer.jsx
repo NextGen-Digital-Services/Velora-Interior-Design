@@ -21,15 +21,6 @@ export const Footer = () => {
               <a href="https://instagram.com" className="footer-social-icon clickable" aria-label="Instagram">
                 <FaInstagram />
               </a>
-              <a href="https://pinterest.com" className="footer-social-icon clickable" aria-label="Pinterest">
-                <FaPinterest />
-              </a>
-              <a href="https://linkedin.com" className="footer-social-icon clickable" aria-label="LinkedIn">
-                <FaLinkedin />
-              </a>
-              <a href="https://youtube.com" className="footer-social-icon clickable" aria-label="YouTube">
-                <FaYoutube />
-              </a>
             </div>
           </div>
 
@@ -84,15 +75,15 @@ export const Footer = () => {
             <div className="footer-info">
               <div className="footer-info-item">
                 <FaMapMarkerAlt />
-                <span>Level 4, prestige corporate towers, Delhi, India</span>
+                <span>Sector 115, Sorkha, Noida, Uttar Pradesh</span>
               </div>
               <div className="footer-info-item">
                 <FaPhone />
-                <a href="tel:+91XXXXXXXXXX" className="clickable">+91-XXXXXXXXXX</a>
+                <a href="tel:+91 73519 01329" className="clickable">+91 73519 01329</a>
               </div>
               <div className="footer-info-item">
                 <FaEnvelope />
-                <a href="mailto:info@veloradesign.com" className="clickable">info@veloradesign.com</a>
+                <a href="mailto:businesswithvelora@gmail.com" className="clickable">businesswithvelora@gmail.com</a>
               </div>
               <div className="footer-info-item">
                 <FaWhatsapp />
