@@ -4,7 +4,6 @@ import HeroSection from '../components/sections/HeroSection';
 import StatsSection from '../components/sections/StatsSection';
 import ServicesSection from '../components/sections/ServicesSection';
 import PortfolioPreview from '../components/sections/PortfolioPreview';
-import DesignStyles from '../components/sections/DesignStyles';
 import ProcessSection from '../components/sections/ProcessSection';
 import BeforeAfterSection from '../components/sections/BeforeAfterSection';
 import TestimonialsSection from '../components/sections/TestimonialsSection';
@@ -17,7 +16,6 @@ export const HomePage = () => {
       <StatsSection />
       <ServicesSection />
       <PortfolioPreview />
-      <DesignStyles />
       <ProcessSection />
       <BeforeAfterSection />
       <TestimonialsSection />
@@ -27,3 +25,4 @@ export const HomePage = () => {
 };
 
 export default HomePage;
+
