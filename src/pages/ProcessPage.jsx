@@ -10,10 +10,11 @@ import process4 from '../assets/process/4_process.webp';
 import process5 from '../assets/process/5_process.webp';
 import process6 from '../assets/process/6_process.webp';
 import process7 from '../assets/process/7_process.webp';
+import heroBg from '/src/assets/images/process/hero_result.webp';
 
 export const ProcessPage = () => {
   const heroStyle = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80')",
+    backgroundImage: `url('${heroBg}')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '40vh',
