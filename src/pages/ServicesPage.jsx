@@ -8,6 +8,11 @@ import { services } from '../data/services';
 import heroBg from '/src/assets/images/services/hero_result.webp';
 import residentialImg from '/src/assets/images/services/residential_result.webp';
 import corporateImg from '/src/assets/images/services/corporate_result.webp';
+import hospitalityImg from '/src/assets/images/services/hospitality_interior_result.webp';
+import retailImg from '/src/assets/images/services/luxury_retail_result.webp';
+import kitchenImg from '/src/assets/images/services/moder_kitchen_result.webp';
+import furnitureImg from '/src/assets/images/services/custom_fur_light_result.webp';
+import fitoutImg from '/src/assets/images/services/fit_out_detail_result.webp';
 
 export const ServicesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -126,7 +131,7 @@ Please contact me regarding my project.`;
                 {/* Image Column */}
                 <div className="service-strip-image-col">
                   <img 
-                    src={service.id === 1 ? residentialImg : service.id === 2 ? corporateImg : service.image} 
+                    src={service.id === 1 ? residentialImg : service.id === 2 ? corporateImg : service.id === 3 ? hospitalityImg : service.id === 4 ? retailImg : service.id === 5 ? kitchenImg : service.id === 6 ? furnitureImg : service.id === 7 ? fitoutImg : service.image} 
                     alt={service.title} 
                     className="service-strip-image"
                     loading="lazy"
