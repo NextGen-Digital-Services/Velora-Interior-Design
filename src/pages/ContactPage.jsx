@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { Button } from '../components/ui/Button';
+import heroBg from '/src/assets/images/Contact/hero_result.webp';
 
 export const ContactPage = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -25,7 +26,7 @@ export const ContactPage = () => {
   };
 
   const heroStyle = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1920&q=80')",
+    backgroundImage: `url('${heroBg}')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '40vh',
