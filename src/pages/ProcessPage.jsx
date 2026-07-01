@@ -3,6 +3,13 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { SectionLabel } from '../components/ui/SectionLabel';
 import { processSteps } from '../data/processSteps';
+import process1 from '../assets/process/1_process.webp';
+import process2 from '../assets/process/2_process.webp';
+import process3 from '../assets/process/3_process.webp';
+import process4 from '../assets/process/4_process.webp';
+import process5 from '../assets/process/5_process.webp';
+import process6 from '../assets/process/6_process.webp';
+import process7 from '../assets/process/7_process.webp';
 
 export const ProcessPage = () => {
   const heroStyle = {
@@ -18,13 +25,13 @@ export const ProcessPage = () => {
 
   // Associated process images
   const processImages = [
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80"
+    process1,
+    process2,
+    process3,
+    process4,
+    process5,
+    process6,
+    process7
   ];
 
   // Extended detail descriptions for process steps
