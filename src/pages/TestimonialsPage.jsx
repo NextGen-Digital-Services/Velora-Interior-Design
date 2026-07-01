@@ -22,27 +22,31 @@ export const TestimonialsPage = () => {
   const videoTestimonials = [
     {
       id: 1,
-      title: "Delhi Luxury Villa Walkthrough",
-      client: "Rajesh Sharma",
-      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80"
+      title: "Luxury Living Space Showcase",
+      client: "ARJUN MEHRA",
+      image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://res.cloudinary.com/dpeq00iqq/video/upload/v1782887342/akib-video-1_evftva.mp4"
     },
     {
       id: 2,
-      title: "Bellevue Penthouse Spatial Tour",
-      client: "Vikram Malhotra",
-      image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80"
+      title: "Elegant Corridor Design",
+      client: "PRIYA KHANNA",
+      image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://res.cloudinary.com/dpeq00iqq/video/upload/v1782887339/akib-video-3_o6v4ro.mp4"
     },
     {
       id: 3,
-      title: "Apex Corporate HQ Boardroom Review",
-      client: "Elena Vance",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+      title: "Modern Kitchen Craftsmanship",
+      client: "ROHAN KAPOOR",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://res.cloudinary.com/dpeq00iqq/video/upload/v1782887340/akib-video-4_yurbe7.mp4"
     },
     {
       id: 4,
-      title: "Aura Superyacht Design Detailing",
-      client: "Captain H. R. Vance",
-      image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=600&q=80"
+      title: "Luxury Bedroom Styling",
+      client: "ISHAAN MALHOTRA",
+      image: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://res.cloudinary.com/dpeq00iqq/video/upload/v1782887342/akib-video-5_yltqct.mp4"
     }
   ];
 
@@ -71,11 +75,32 @@ export const TestimonialsPage = () => {
 
           <div className="video-testimonials-grid">
             {videoTestimonials.map((video) => (
-              <div key={video.id} className="video-card reveal stagger-1 clickable">
-                <div 
-                  className="video-card-image"
-                  style={{ backgroundImage: `url(${video.image})` }}
-                >
+              <div 
+                key={video.id} 
+                className="video-card reveal stagger-1 clickable"
+                onMouseEnter={(e) => {
+                  const videoEl = e.currentTarget.querySelector('video');
+                  if (videoEl) videoEl.play().catch(() => {});
+                }}
+                onMouseLeave={(e) => {
+                  const videoEl = e.currentTarget.querySelector('video');
+                  if (videoEl) {
+                    videoEl.pause();
+                    videoEl.currentTime = 0;
+                  }
+                }}
+              >
+                <div className="video-card-image" style={{ position: 'relative', overflow: 'hidden' }}>
+                  <video 
+                    src={video.videoUrl} 
+                    poster={video.image}
+                    muted 
+                    preload="metadata" 
+                    playsInline 
+                    loop
+                    className="testimonial-video-player"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
                   <div className="video-play-overlay">
                     <div className="video-play-button">
                       <FaPlay />
@@ -158,8 +183,14 @@ export const TestimonialsPage = () => {
           position: relative;
           transition: var(--transition);
         }
+        .video-card-image video {
+          transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .video-card:hover video {
+          transform: scale(1.05);
+        }
         .video-card:hover .video-card-image {
-          filter: brightness(0.85);
+          filter: brightness(0.95);
         }
         .video-play-overlay {
           position: absolute;
@@ -171,6 +202,12 @@ export const TestimonialsPage = () => {
           display: flex;
           align-items: center;
           justify-content: center;
+          transition: opacity 0.4s ease;
+          opacity: 1;
+          pointer-events: none;
+        }
+        .video-card:hover .video-play-overlay {
+          opacity: 0;
         }
         .video-play-button {
           width: 64px;
