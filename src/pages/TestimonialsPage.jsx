@@ -5,10 +5,11 @@ import { SectionLabel } from '../components/ui/SectionLabel';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { TestimonialCard } from '../components/ui/TestimonialCard';
 import { testimonials } from '../data/testimonials';
+import heroBg from '/src/assets/images/testimonial/hero_result.webp';
 
 export const TestimonialsPage = () => {
   const heroStyle = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1920&q=80')",
+    backgroundImage: `url('${heroBg}')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '40vh',
