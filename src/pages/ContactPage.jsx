@@ -150,23 +150,6 @@ export const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Row 4: Budget */}
-              <div className="form-group">
-                <label className="form-label" htmlFor="budget">Estimated Budget Range *</label>
-                <select
-                  id="budget"
-                  className="form-select"
-                  {...register("budget", { required: "Please select budget range" })}
-                >
-                  <option value="">Select budget...</option>
-                  <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                  <option value="$100,000 - $250,000">$100,000 - $250,000</option>
-                  <option value="$250,000 - $500,000">$250,000 - $500,000</option>
-                  <option value="$500,000+">$500,000+</option>
-                </select>
-                {errors.budget && <span className="form-error-msg">{errors.budget.message}</span>}
-              </div>
-
               {/* Row 5: Message */}
               <div className="form-group">
                 <label className="form-label" htmlFor="message">Project Description *</label>

@@ -1,4 +1,11 @@
 /* FILE: src/data/services.js */
+import residentialImage from "../assets/images/services/residential_result.webp";
+import corporateImage from "../assets/images/services/corporate_result.webp";
+import hospitalityImage from "../assets/images/services/hospitality_interior_result.webp";
+import retailImage from "../assets/images/services/luxury_retail_result.webp";
+import kitchenImage from "../assets/images/services/moder_kitchen_result.webp";
+import furnitureImage from "../assets/images/services/custom_fur_light_result.webp";
+import fitoutImage from "../assets/images/services/fit_out_detail_result.webp";
 
 export const services = [
   {
@@ -14,7 +21,7 @@ export const services = [
       "Designer lighting & decorative layouts",
       "Premium furniture sourcing & staging"
     ],
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+    image: residentialImage
   },
   {
     id: 2,
@@ -29,7 +36,7 @@ export const services = [
       "Ergonomic furniture packages",
       "Intelligent smart-office system integration"
     ],
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+    image: corporateImage
   },
   {
     id: 3,
@@ -44,7 +51,7 @@ export const services = [
       "Commercial fire-safety fabric procurement",
       "Lounge & dining space configurations"
     ],
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+    image: hospitalityImage
   },
   {
     id: 4,
@@ -59,7 +66,7 @@ export const services = [
       "VIP client consultation lounge zones",
       "High-durability luxury floor textures"
     ],
-    image: "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=800&q=80"
+    image: retailImage
   },
   {
     id: 5,
@@ -74,7 +81,7 @@ export const services = [
       "Master suite open-concept wet rooms",
       "Recessed sanitary brassware fittings"
     ],
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"
+    image: kitchenImage
   },
   {
     id: 6,
@@ -89,7 +96,7 @@ export const services = [
       "Statement chandelier sourcing & planning",
       "Handcrafted metal & glass element detailing"
     ],
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
+    image: furnitureImage
   },
   {
     id: 7,
@@ -104,6 +111,6 @@ export const services = [
       "Rigid quality control inspections",
       "Comprehensive digital material handovers"
     ],
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80"
+    image: fitoutImage
   }
 ];
